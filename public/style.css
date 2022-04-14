@@ -11,14 +11,16 @@ html {
 body {
   font-family: 'Quicksand', sans-serif;
   
-  background: #7159c1;
+  background: #2368fc;
 }
 
 .container {
   width: 80%;
   max-width: 400px;
-  
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+   margin: auto;
 }
 
 h1 {
