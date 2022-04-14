@@ -26,7 +26,15 @@ function addElement({ name, url }) {
     a.target = "_blank"
 
     trash.innerHTML = "x"
-    trash.onclick = () => removeElement(trash)
+    trash.onclick = () => {
+        removeElement(trash)
+        const xhr = new XMLHttpRequest()
+        xhr.open('DELETE','http://localhost:4000/urls?name='+name+"&url="+url+"&del=1",true)
+        xhr.onload = () =>{
+            console.log(this.response)
+        }
+        xhr.send()
+    }
 
     li.append(a)
     li.append(trash)
@@ -45,6 +53,7 @@ function addElement({ name, url }) {
 function removeElement(el) {
     if (confirm('Tem certeza que deseja deletar?')){
         el.parentNode.remove();
+     
 
     }
 }
